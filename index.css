@@ -15,7 +15,7 @@ main {
     flex: 1;
 }
 
-
+/* The websites header */
 .header {
     position: sticky;
     top: 0;
@@ -30,10 +30,15 @@ main {
 
     color: white;
 }
+
+/* The pages main content */
 .content{
     padding: 20px clamp(20px, 5vw, 100px);
+    display: grid;
+    grid-auto-flow: row;
+    row-gap: 30px;
 
-    /* about me */
+    /* about me section */
     .me {
         display: grid;
         grid-auto-flow: column;
@@ -41,7 +46,7 @@ main {
         justify-content: center;
         column-gap: 20px;
 
-        margin-bottom: 20px;
+
         .right {
             display: flex;
             flex-direction: column;
@@ -87,7 +92,7 @@ main {
 
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 885px) {
             grid-auto-flow: row;
             column-gap: 0px;
             .right {
@@ -101,12 +106,10 @@ main {
             }
         }
     }
-    @media (max-width: 768px) {
-        padding: 20px;
-    }
+    
 
 
-    /*the skills and projects*/
+    /*the section for skills and projects*/
     .Preview {
         display: grid;
         grid-template-columns: 370px minmax(0, 1fr);
@@ -116,10 +119,7 @@ main {
         
         border-top-right-radius: 8px;
         border-bottom-right-radius: 8px;
-        
-
-       
-
+    
         .skills-container {
             background: #312f2f;
             box-sizing: border-box;
@@ -129,6 +129,24 @@ main {
             width: 370px;
             position: relative;
 
+            color: white;
+
+            h1 {
+                margin-top: 0;
+                margin-bottom: 6px;
+            }
+            .skills {
+                display: grid;
+                grid-auto-flow: column;
+                justify-content: left;
+                column-gap: 20px;
+                li {
+                    margin-bottom: 3px;
+                    color: #63a8bd;
+                }
+            }
+
+            /* For the projects */
             .projects-tittle {
                 position: absolute;
                 top: 0;
@@ -153,28 +171,9 @@ main {
                 border-left: 2px solid #a9e4dd;
                 border-radius: 0 8px 8px 0;
             }
-
-
-
-            
-            color: white;
-
-            h1 {
-                margin-top: 0;
-                margin-bottom: 6px;
-            }
-            .skills {
-                display: grid;
-                grid-auto-flow: column;
-                justify-content: left;
-                column-gap: 20px;
-                li {
-                    margin-bottom: 3px;
-                    color: #63a8bd;
-                }
-            }
         }
 
+        /* The projects container css */
         .projects {
             display: grid;
             grid-auto-flow: column;
@@ -185,19 +184,9 @@ main {
             min-width: 0;
             overflow-x: auto;
             overflow-y: hidden;
-            
-            
-            @media (max-width:768px) {
-                justify-items: center;
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-                grid-auto-flow: row;
-                margin-bottom: 10px;
-                column-gap: 20px;
-                row-gap: 40px;
-            }
 
             
-
+            /* Project card style */
             .project {
                 width: 300px;
                 margin: 5px;
@@ -246,6 +235,8 @@ main {
                     scale: 1.001;
                     border-color: #fff5de;
                 }
+
+                /* The more box that appears when hovering over the card */
                 .more {
                     position: absolute;
                     background-color: #222222f5;
@@ -281,7 +272,8 @@ main {
 
         }
 
-        @media (max-width: 768px) {
+        /* Mobile */
+        @media (max-width: 1000px) {
             grid-template-columns: 1fr;
             row-gap: 10px;
 
@@ -302,19 +294,346 @@ main {
                 column-gap: 50px;
             }
 
+            /* Puts the projects 2 side by side in the mobile mode */
+            .projects {
+                justify-items: center;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                grid-auto-flow: row;
+                margin-bottom: 10px;
+                column-gap: 20px;
+                row-gap: 10px;
+            }
+            
             border-top-right-radius: 0px;
             border-bottom-right-radius: 8px;
             border-bottom-left-radius: 8px;
 
         }
+
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .projects {
+                justify-items: center;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                grid-auto-flow: row;
+                margin-bottom: 10px;
+                column-gap: 20px;
+                row-gap: 40px;
+            }
+        }
+        
         
     }
 
-  
+    /* contais the time line of work and education */
+    .timeline-container {
+        background: transparent;
+        border-radius: 8px;
+        box-shadow: 6px 8px 16px 5px rgba(0, 0, 0, 0.25);
 
+        width: 100%;
+        height: fit-content;
+
+        /* contains my lifes experiances as timeline ccs */
+        .tl-inner-container {
+            position: relative;
+            display: grid;
+            grid-auto-flow: row;
+            row-gap: 20px;
+            height: 100%;
+
+            padding-top: 25px;
+            
+            .tl-tittle {
+                color: white;
+                text-shadow: 2px 3px 5px rgba(0, 0, 0, 0.3);
+                text-align: center;
+                justify-self: center;
+                margin: 0px;
+                position: absolute;
+            }
+
+            /* the white line in the middle */
+            .line {
+                position: absolute;
+                
+                width: 3px;
+                justify-self: center;
+
+                top: 30px;
+                bottom: 20px;
+
+                background: white;
+            }
+
+             /* Education preset for the timeline note */
+            .education-entry {
+                position: relative;
+                width: calc(50% - 75px);
+                height: fit-content;
+
+                padding: 17px;
+                background: #89857765;
+
+                border-radius: 8px;
+                border: #afaa98 solid 2px;
+                margin: 15px;
+                box-shadow: 6px 8px 16px 5px rgba(0, 0, 0, 0.25);
+
+                color: white;
+
+                h2 {
+                    margin: 0;
+                    font-size:large;
+                }
+
+                p {
+                    color: #d5d1bb;
+                    margin: 5px;
+                    margin-left: 15px;
+                }
+
+                .tl-year {
+                    display: block;
+                    width: 100%;
+                    font-weight: bolder;
+                    font-style: italic;
+                    font-size:medium;
+                    color: #3d3c36;
+                    margin: 0;
+                }
+
+                &::before {
+                    content: "";
+                    position: absolute;
+                    top: 17px;
+                    right: -34px;
+                    width: 20px;
+                    height: 20px;
+                    box-sizing: border-box;
+                    background: transparent;
+                    border: 2px solid white;
+                    background: #615e54;
+                    border-radius: 50%;
+                    z-index: 1;
+                }
+
+                &:nth-child(even) {
+                    justify-self: end;
+
+                    &::before {
+                        right: auto;
+                        left: -34px;
+                    }
+                }
+
+                &:nth-child(odd) {
+                    .tl-year {
+                        text-align: right;
+                    }
+                }
+
+                &:hover {
+                    border-color: #d5cfb9;
+                    transform: translateY(-1px);
+                    
+                    transition: 0.3s;
+                }
+            }
+
+            /* Work preset for the timeline note */
+            .work-entry {
+                position: relative;
+                width: calc(50% - 75px);
+                height: fit-content;
+
+                padding: 17px;
+                background: #37393b65;
+
+                border-radius: 8px;
+                border: #8683aa solid 2px;
+                margin: 15px;
+                box-shadow: 6px 8px 16px 5px rgba(0, 0, 0, 0.25);
+
+                color: rgb(234, 237, 255);
+
+                h2 {
+                    margin: 0;
+                    font-size:large;
+                }
+
+                p {
+                    color: #c4bbd5;
+                    margin: 5px;
+                    margin-left: 15px;
+                }
+
+                .tl-year {
+                    display: block;
+                    width: 100%;
+                    font-weight: bolder;
+                    font-style: italic;
+                    font-size:medium;
+                    color: #3d3c36;
+                    margin: 0;
+                }
+
+                &::before {
+                    content: "";
+                    position: absolute;
+                    top: 17px;
+                    right: -34px;
+                    width: 20px;
+                    height: 20px;
+                    box-sizing: border-box;
+                    background: transparent;
+                    border: 2px solid #d2c8ff;
+                    background: #3a3846;
+                    border-radius: 50%;
+                    z-index: 1;
+                }
+
+                &:nth-child(even) {
+                    justify-self: end;
+
+                    &::before {
+                        right: auto;
+                        left: -34px;
+                    }
+                }
+
+                &:nth-child(odd) {
+                    .tl-year {
+                        text-align: right;
+                    }
+                }
+
+                &:hover {
+                    border-color: #b1addd;
+                    transform: translateY(-1px);
+                    
+                    transition: 0.3s;
+                }
+            }
+            
+        }
+        
+    }
+
+    /* very funny joke note */
+    .joke-note {
+        background: #888476;
+        border-radius: 8px;
+        border: #d4ceb8 solid 2px;
+        padding: 15px;
+        box-shadow: 6px 8px 16px rgba(0, 0, 0, 0.25);
+
+        h2 {
+            margin: 0;
+            margin-bottom: 15px;
+            font-style: italic;
+            color: white;
+            
+        }
+
+        p {
+            color: #c7c1ac;
+            font-size: small;
+            font-weight: bold;
+            margin: 5px;
+            margin-left: 30px;
+        }
+
+    }
+
+
+    /* Houses ping pong */
+    .game-container {
+        border-radius: 8px;
+        box-shadow: 6px 8px 16px 5px rgba(0, 0, 0, 0.25);
+
+
+        canvas {
+            display: block;
+            background: #000;
+            bottom: auto;
+            border-radius: 8px;
+            width: 100%;
+            margin: 0;
+            aspect-ratio: 16/9;
+        }
+
+        h2 {
+            color: white;
+            text-shadow: 2px 3px 5px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            justify-self: center;
+            margin: 0px;
+        }
+
+        @media (min-width: 1200px) {
+            justify-self: center;
+            width: 70%;
+        }
+    }
+
+
+
+
+
+
+    /* questions and anwsers */
+    .QA-container {
+        background: #888476;
+        border-radius: 8px;
+        border: #d4ceb8 solid 2px;
+        box-shadow: 6px 8px 16px 5px rgba(0, 0, 0, 0.25);
+
+        width: 70%;
+        height: fit-content;
+        justify-self: center;
+        padding-bottom: 20px;
+
+        h2 {
+            margin: 0;
+            padding: 15px;
+            color: white;
+        }
+
+        hr {
+            border: #d4ceb8b6 dotted 2px;
+        }
+
+        p {
+            color: #3b3832;
+            margin: 5px;
+            margin-left: 30px;
+            font-size: larger;
+            font-weight: bold;
+        }
+
+        .QA-content p:nth-child(even) {
+            font-weight: normal;
+            font-size: medium;
+            color: #d3c8b2;
+
+            margin-left: 70px;
+            margin-bottom: 15px;
+        }
+
+        @media (min-width: 1200px) {
+            width: 50%;
+        }
+    }
+
+
+    @media (max-width: 768px) {
+        padding: 20px;
+    }
 }
 
-
+/* The footer of the webpage */
 .footer {
     display: grid;
     grid-auto-flow: row;
@@ -343,11 +662,9 @@ main {
     a { 
         color: #f01a6c;
     }
-
-
-
 }
 
+/* Default img css */
 img {
     border-radius: 8px;
     border-color: transparent;
