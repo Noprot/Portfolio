@@ -31,6 +31,15 @@ main {
     color: white;
 }
 
+.header-name {
+    position: absolute;
+    top: 50%;
+    left: 25px;
+    margin: 0;
+    transform: translateY(-50%);
+    font-size: 20px;
+}
+
 /* The pages main content */
 .content{
     padding: 20px clamp(20px, 5vw, 100px);
